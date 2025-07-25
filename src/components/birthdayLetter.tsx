@@ -14,6 +14,7 @@ export default function BirthdayLetter({ onClose }: { onClose: () => void }) {
 
     return (
         <div
+            onClick={onClose}
             className={`fixed p-2 inset-0 flex items-center justify-center bg-black/40 z-[10000] ${pacifico.className}`}
         >
             <motion.div
@@ -21,7 +22,10 @@ export default function BirthdayLetter({ onClose }: { onClose: () => void }) {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut" }}
                 className="relative w-fit h-fit bg-yellow-100 rounded-xl shadow-2xl overflow-hidden cursor-pointer transition-all duration-700"
-                onClick={() => onClose()}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    onClose()
+                }}
             >
                 <div className="relative">
                     <img
