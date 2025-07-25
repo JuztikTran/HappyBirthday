@@ -217,11 +217,11 @@ const Cake = () => {
                         <rect x="10" y="475.571" fill="#fefae9" width="180" height="4" />
                     </svg>
                     <div className={`${pacifico.className} flex-col text-center space-y-2`}>
-                        <h1 className="text-4xl sm:text-xl md:text-xl text-orange-300">Happy birthday!</h1>
+                        <h1 className="text-4xl sm:text-xl md:text-4xl text-orange-300">Happy birthday!</h1>
                         {/* <p className="text-6xl font-handwriting text-amber-700 font-bold animate-bling mt-6 drop-shadow-md">
                     {process.env.NEXT_PUBLIC_NAME}
                 </p> */}
-                        <p className="text-4xl sm:text-5xl md:text-6xl font-bold animate-bling mt-6 drop-shadow-md break-words px-4">
+                        <p className="text-4xl sm:text-5xl md:text-6xl text-white font-bold animate-bling mt-6 drop-shadow-md break-words px-4">
                             {process.env.NEXT_PUBLIC_NAME} 
                         </p>
                     </div>
