@@ -32,7 +32,7 @@ export default function BirthdayLetter({ onClose }: { onClose: () => void }) {
                     <div
                         className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[60%] text-base text-center"
                     >
-                        <p className="text-cyan-900 text-lg leading-relaxed">
+                        <p className="text-cyan-900 text-sm leading-relaxed bg-white rounded-2xl">
                             {process.env.NEXT_PUBLIC_CONTENT}
                         </p>
                     </div>
