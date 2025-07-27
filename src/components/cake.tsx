@@ -15,6 +15,7 @@ const pacifico = Pacifico({
 });
 
 const Cake = () => {
+    const [loading, setLoading] = useState(true);
     const [candlesLit, setCandlesLit] = useState(true);
     const [showLetter, setShowLetter] = useState(false);
     const [showWishes, setShowWishes] = useState(false);
@@ -26,6 +27,14 @@ const Cake = () => {
             }, 3000);
         }
     }, [candlesLit]);
+
+    useEffect(() => {
+        const timeOut = setTimeout(() => {
+            setLoading(false);
+        }, 8000)
+
+        return () => clearTimeout(timeOut);
+    }, []);
 
     const handleBlow = () => {
         if (candlesLit) {
@@ -52,7 +61,7 @@ const Cake = () => {
             {/* Nội dung chính */}
             <div className="relative z-10">
                 <div className="absolute top-1/2 left-0 right-0">
-                    {candlesLit && <CandleBlowListener onBlow={handleBlow} />}
+                    {candlesLit && !loading && <CandleBlowListener onBlow={handleBlow} />}
                     <div className="cake">
                         <div className={`flame ${!candlesLit ? 'hidden' : ''}`}>
                             <div className="fuego"></div>
@@ -64,9 +73,9 @@ const Cake = () => {
                         <div className="wick" />
                         {
                             !candlesLit && <Firework />
-                        }{
-                            !candlesLit && <PlaySong />
                         }
+                        <PlaySong />
+
                     </div>
                     <svg id="cake" version="1.1" x="0px" y="0px" width="200px" height="500px" viewBox="0 0 200 500" enableBackground={"new 0 0 200 500"} xmlSpace="preserve">
                         <path fill="#a88679" d="M173.667-13.94c-49.298,0-102.782,0-147.334,0c-3.999,0-4-16.002,0-16.002
@@ -222,8 +231,9 @@ const Cake = () => {
                     {process.env.NEXT_PUBLIC_NAME}
                 </p> */}
                         <p className="text-4xl sm:text-5xl md:text-6xl text-white font-bold animate-bling mt-6 drop-shadow-md break-words px-4">
-                            {process.env.NEXT_PUBLIC_NAME} 
+                            {process.env.NEXT_PUBLIC_NAME}
                         </p>
+                        {candlesLit && !loading && <p className='font-light text-sm mt-20 ease-in-out'>Hãy ước nguyện và thổi tắt nến</p>}
                     </div>
 
                 </div>
