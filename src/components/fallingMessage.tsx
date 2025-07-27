@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export const FallingMessage = () => {
     const [messages, setMessages] = useState<
-        { text: string; top: string; left: string }[]
+        { text: string; top: string; topEnd: string; left: string }[]
     >([]);
 
     const birthdateMessages = [
@@ -28,11 +28,13 @@ export const FallingMessage = () => {
         const shuffled = [...birthdateMessages]
             .sort(() => Math.random() - 0.5)
             .map((msg) => {
-                const top = Math.random() * 50;
-                const left = Math.random() * 50;
+                const top = 60 + Math.random() * 10;
+                const topEnd = top - 100;
+                const left = Math.random() * 75;
                 return {
                     text: msg,
-                    top: `${top}%`,
+                    top: `${top}vh`,
+                    topEnd:`${topEnd}vh`,
                     left: `${left}%`,
                 };
             });
@@ -40,22 +42,23 @@ export const FallingMessage = () => {
     }, []);
 
     return (
-        <div className="fixed inset-0 z-[0] overflow-hidden">
+        <div className="fixed h-screen inset-0 z-[0] overflow-hidden">
             {/* Các dòng lời chúc */}
             <div className="absolute inset-0 flex flex-col items-center justify-center space-y-6">
                 {messages.map((msg, idx) => (
                     <motion.p
                         key={idx}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: [0, 0.7, 0], y: [20, 0, -30] }}
-                        transition={{ duration: 5, delay: idx * 2, repeat: Infinity }}
+                        initial={{ opacity: 0, y: msg.top }}
+                        animate={{ opacity: [0, 0.7, 0], y: msg.topEnd }}
+                        transition={{ duration: 12, delay: idx * 1.5, repeat: Infinity }}
                         // animate={{ opacity: 1, y: 0 }}
                         // transition={{ delay: idx * 1, duration: 1 }}
                         className="absolute text-sm lg:text-base font-light text-center text-pink-100 drop-shadow-lg bg-pink-400 rounded-2xl p-1"
                         style={{
-                            top: msg.top,
+                            // top: msg.top,
                             left: msg.left,
-                            transform: "translate(-50%, -50%)",
+                            transform: "translateX(-50%)",
+                            // transform: "translate(-50%, -50%)",
                             pointerEvents: "none",
                         }}
                     >
