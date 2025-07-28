@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react'
 import { Pacifico } from "next/font/google";
 import CandleBlowListener from '@/utils/candleBlowListener';
 import Firework from '@/utils/fireWork';
-import PlaySong from '@/components/playSong';
 import BirthdayLetter from '@/components/birthdayLetter';
 import { FallingMessage } from '@/components/fallingMessage';
 
@@ -74,7 +73,6 @@ const Cake = () => {
                         {
                             !candlesLit && <Firework />
                         }
-                        <PlaySong />
 
                     </div>
                     <svg id="cake" version="1.1" x="0px" y="0px" width="200px" height="500px" viewBox="0 0 200 500" enableBackground={"new 0 0 200 500"} xmlSpace="preserve">
