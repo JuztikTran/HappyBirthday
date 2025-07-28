@@ -23,8 +23,9 @@ export default function Home() {
               <div className="h-screen flex flex-col items-center justify-center bg-gradient-to-br from-pink-300 to-yellow-200 text-center">
                 <button
                   onClick={() => setStart(true)}
-                  className="py-2 px-2.5 rounded-2xl text-white text-xl md:text-base lg:text-xl cursor-pointer bg-cyan-800">
-                  Start birthday party
+                  className="py-3 px-6 rounded-full text-white text-2xl font-semibold shadow-lg bg-gradient-to-r from-pink-500 via-red-400 to-yellow-400 hover:scale-105 hover:brightness-110 transition-all duration-300"
+                >
+                  🎂Start Birthday Party 
                 </button>
               </div>
             )

@@ -231,7 +231,7 @@ const Cake = () => {
                         <p className="text-4xl sm:text-5xl md:text-6xl text-white font-bold animate-bling mt-6 drop-shadow-md break-words px-4">
                             {process.env.NEXT_PUBLIC_NAME}
                         </p>
-                        {candlesLit && !loading && <p className='font-light text-sm mt-20 ease-in-out'>Hãy ước nguyện và thổi tắt nến</p>}
+                        {candlesLit && !loading && <p className='font-light text-sm mt-20 ease-in-out text-white'>Hãy ước nguyện và thổi tắt nến</p>}
                     </div>
 
                 </div>
